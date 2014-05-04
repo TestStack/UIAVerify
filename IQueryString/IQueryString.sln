@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IQueryString", "IQueryString.csproj", "{59A1D0ED-DA1A-4496-9FF5-2E2417E16AAC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Release|AnyCPU = Release|AnyCPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59A1D0ED-DA1A-4496-9FF5-2E2417E16AAC}.Release|AnyCPU.ActiveCfg = Release|Any CPU
+		{59A1D0ED-DA1A-4496-9FF5-2E2417E16AAC}.Release|AnyCPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{59A1D0ED-DA1A-4496-9FF5-2E2417E16AAC} = {C16C89F5-1352-40BB-8E2C-83A49DC0A8C9}
+		{54F328DE-5457-4D0E-AA5B-23A91416BB51} = {C16C89F5-1352-40BB-8E2C-83A49DC0A8C9}
+	EndGlobalSection
+EndGlobal

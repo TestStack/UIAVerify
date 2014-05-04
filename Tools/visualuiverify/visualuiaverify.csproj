@@ -1,0 +1,279 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\bin\x64\debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CHECK_DESCRIPTION USE_CURRENT </DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>..\..\bin\x64\release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>..\..\bin\x86\release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{136560B3-A744-4442-92FB-3556CA6098CC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VisualUIAVerify</RootNamespace>
+    <AssemblyName>VisualUIAVerify</AssemblyName>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CHECK_DESCRIPTION USE_CURRENT NATIVE_UIA</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\bin\x86\debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CHECK_DESCRIPTION USE_CURRENT </DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Windows\Microsoft.NET\Framework\v2.0.50727\Accessibility.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>..\..\..\Windows\Microsoft.NET\Framework\v2.0.50727\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Reference Assemblies\Microsoft\Framework\v3.0\WindowsBase.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\AutomationElementPropertyGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AutomationElementPropertyGrid.Designer.cs">
+      <DependentUpon>AutomationElementPropertyGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AutomationElementTreeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AutomationElementTreeControl.Designer.cs">
+      <DependentUpon>AutomationElementTreeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AutomationElementTreeControlEvents.cs" />
+    <Compile Include="Controls\AutomationElementTreeNode.cs" />
+    <Compile Include="Controls\AutomationElementTreeNodeCollection.cs" />
+    <Compile Include="Controls\AutomationTestsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AutomationTestsControl.Designer.cs">
+      <DependentUpon>AutomationTestsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TestResultsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TestResultsControl.Designer.cs">
+      <DependentUpon>TestResultsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TestResultsControlEvents.cs" />
+    <Compile Include="Features\AutomationElementPatternsPropertyObject.cs" />
+    <Compile Include="Features\AutomationElementPropertyObject.cs">
+    </Compile>
+    <Compile Include="Features\AutomationTest.cs" />
+    <Compile Include="Features\ElementHighlighter.cs" />
+    <Compile Include="Features\AutomationTestsFilter.cs" />
+    <Compile Include="Features\FocusTracer.cs" />
+    <Compile Include="Controls\TreeHelper.cs" />
+    <Compile Include="Features\HoverMode.cs" />
+    <Compile Include="Features\LiveTreeNode.cs" />
+    <Compile Include="Features\AutomationTestsCollection.cs" />
+    <Compile Include="Features\AutomationTestManager.cs" />
+    <Compile Include="Forms\AboutWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AboutWindow.Designer.cs">
+      <DependentUpon>AboutWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RunningTestsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RunningTestsWindow.Designer.cs">
+      <DependentUpon>RunningTestsWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Misc\ApplicationLogger.cs" />
+    <Compile Include="Misc\ApplicationState.cs" />
+    <Compile Include="Misc\Enumerations.cs" />
+    <Compile Include="Misc\HotKey.cs" />
+    <Compile Include="Misc\WaitCursor.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\AutomationHelper.cs" />
+    <Compile Include="Utils\FocusChangeListener.cs" />
+    <Compile Include="Utils\ScreenRectangle.cs" />
+    <Compile Include="Utils\ScreenBoundingRectangle.cs" />
+    <Compile Include="VisualUIAVerifyResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisualUIAVerifyResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Win32\NativeMethods.cs" />
+    <Compile Include="Win32\SafeNativeMethods.cs" />
+    <Compile Include="Win32\UnsafeNativeMethods.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icons\arrowDown.ico" />
+    <Content Include="Icons\arrowLeft.ico" />
+    <Content Include="Icons\arrowRight.ico" />
+    <Content Include="Icons\arrowUp.ico" />
+    <Content Include="Icons\testToRunWithChildren.ico" />
+    <Content Include="Icons\elemTypeGeneralLive.ico" />
+    <Content Include="Icons\elemTypeRefresh2.ico" />
+    <Content Include="Icons\elemTypeError.ico" />
+    <Content Include="Icons\ExpandAll.ico" />
+    <Content Include="Icons\gotoBack.ico" />
+    <Content Include="Icons\GotoFirstChild.ico" />
+    <Content Include="Icons\gotoForward.ico" />
+    <Content Include="Icons\GotoLastChild.ico" />
+    <Content Include="Icons\GotoNextSibling.ico" />
+    <Content Include="Icons\GotoPrevSibling.ico" />
+    <Content Include="Icons\elemTypeGeneral.ico" />
+    <Content Include="Icons\GotoParent.ico" />
+    <Content Include="Icons\elemTypeRefresh.ico" />
+    <Content Include="Icons\orderAlphabetical.ico" />
+    <Content Include="Icons\ieIcon.ico" />
+    <Content Include="Icons\orderCategorized.ico" />
+    <Content Include="Icons\programicon.ico" />
+    <Content Include="Icons\quickFind.ico" />
+    <Content Include="Icons\testFailed.ico" />
+    <Content Include="Icons\testSucceeded.ico" />
+    <Content Include="Icons\testToRun.ico" />
+    <Content Include="Icons\testUnexpectedException.ico" />
+    <Content Include="TestResultTemlates\TestLogXsltTemplate.xslt" />
+    <Content Include="TestResultTemlates\TestResultsXsltTemplate.xslt" />
+    <Content Include="TestResultTemlates\FullDetailResultsXsltTemplate.xslt" />
+    <Content Include="TestResultTemlates\OverallResultsXsltTemplate.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\AutomationElementPropertyGrid.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AutomationElementPropertyGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AutomationElementTreeControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AutomationElementTreeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AutomationTestsControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AutomationTestsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TestResultsControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TestResultsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AboutWindow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AboutWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainWindow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RunningTestsWindow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>RunningTestsWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisualUIAVerifyResources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>VisualUIAVerifyResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\UIAComWrapper\UIAComWrapper\UIAComWrapper.csproj">
+      <Project>{1DD63894-DBB9-40EF-BFF2-55624CB285AF}</Project>
+      <Name>UIAComWrapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\uialoggingxml\uialoggingxml.csproj">
+      <Project>{BA696918-C287-441E-B40A-8CEC5A7217F8}</Project>
+      <Name>uialoggingxml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\uialogging\uialogging.csproj">
+      <Project>{7F4B9045-8FEF-4875-8EA8-DD8091288E2B}</Project>
+      <Name>uialogging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UIATestLibrary\UIATestLibrary.csproj">
+      <Project>{EF563732-17B0-4B32-B14C-903A65862DF6}</Project>
+      <Name>UIATestLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,229 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EF563732-17B0-4B32-B14C-903A65862DF6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WUIATestLibrary</RootNamespace>
+    <AssemblyName>WUIATestLibrary</AssemblyName>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NATIVE_UIA</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\bin\x86\debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>..\bin\x86\release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\bin\x64\debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>..\bin\x64\release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility">
+      <HintPath>..\..\Windows\Microsoft.NET\Framework\v2.0.50727\Accessibility.dll</HintPath>
+    </Reference>
+    <Reference Include="System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Windows\Microsoft.NET\Framework\v2.0.50727\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Interop.UIAutomationClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Program Files\Reference Assemblies\Microsoft\Framework\v3.0\WindowsBase.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Input\Input.cs" />
+    <Compile Include="Common\Input\NativeMethods.cs" />
+    <Compile Include="Common\Input\SafeNativeMethods.cs" />
+    <Compile Include="Common\Input\UnsafeNativeMethods.cs" />
+    <Compile Include="Common\Narrator\NarratorErrorDialogs.cs" />
+    <Compile Include="InternalHelper\automationelementpathfromroot.cs" />
+    <Compile Include="InternalHelper\BugManager\BugLibrary.cs" />
+    <Compile Include="InternalHelper\Enumerations\Enumerations.cs" />
+    <Compile Include="InternalHelper\Helpers.cs" />
+    <Compile Include="InternalHelper\Logging\CommentInfo.cs" />
+    <Compile Include="InternalHelper\Logging\ExceptionInfo.cs" />
+    <Compile Include="InternalHelper\Logging\MonitorProcessInfo.cs" />
+    <Compile Include="InternalHelper\Logging\ReportResultsInfo.cs" />
+    <Compile Include="InternalHelper\Logging\StartTestInfo.cs" />
+    <Compile Include="InternalHelper\Logging\TestEndInfo.cs" />
+    <Compile Include="InternalHelper\Logging\TestResultInfo.cs" />
+    <Compile Include="InternalHelper\Logging\UIVerifyLogging.cs" />
+    <Compile Include="InternalHelper\Tests\ControlObject.cs" />
+    <Compile Include="InternalHelper\Tests\EventHandlers.cs" />
+    <Compile Include="InternalHelper\Tests\ExceptionTypes.cs" />
+    <Compile Include="InternalHelper\Tests\PatternObject.cs" />
+    <Compile Include="InternalHelper\Tests\ScenarioObject.cs" />
+    <Compile Include="InternalHelper\Tests\TestObject.cs" />
+    <Compile Include="InternalHelper\TextLibrary.cs" />
+    <Compile Include="InternalHelper\TextLibraryCount.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UIAutomation\Core\Library.cs" />
+    <Compile Include="UIAutomation\Core\MenuWrapper.cs" />
+    <Compile Include="UIAutomation\Interfaces\WUIATestLibraryInterfaces.cs" />
+    <Compile Include="UIAutomation\Resources\resources.cs" />
+    <Compile Include="UIAutomation\TestRuns.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\Button.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\Calendar.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\CheckBox.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\ComboBox.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\Custom.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\datagrid.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\dataitem.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\document.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\Edit.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\Group.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\header.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\headeritem.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\HyperLink.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\HyperLinkList.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\Image.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\IpAddress.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\List.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\ListItem.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\Menu.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\MenuBar.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\MenuItem.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\pane.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\ProgressBar.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\RadioButton.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\ScrollBar.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\seperator.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\Slider.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\Spinner.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\splitbutton.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\StatusBar.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\Tab.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\TabItem.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\table.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\Text.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\Thumb.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\titlebar.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\Toolbar.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\Tooltip.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\Tree.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\TreeItem.cs" />
+    <Compile Include="UIAutomation\Tests\Controls\window.cs" />
+    <Compile Include="UIAutomation\Tests\Patterns\AutomationElementTests.cs" />
+    <Compile Include="UIAutomation\Tests\Patterns\DockTests.cs" />
+    <Compile Include="UIAutomation\Tests\Patterns\ExpandCollapseTests.cs" />
+    <Compile Include="UIAutomation\Tests\Patterns\GridItemTests.cs" />
+    <Compile Include="UIAutomation\Tests\Patterns\GridTests.cs" />
+    <Compile Include="UIAutomation\Tests\Patterns\InvokeTests.cs" />
+    <Compile Include="UIAutomation\Tests\Patterns\MultipleViewTests.cs" />
+    <Compile Include="UIAutomation\Tests\Patterns\RangeValueTests.cs" />
+    <Compile Include="UIAutomation\Tests\Patterns\ScrollItemTests.cs" />
+    <Compile Include="UIAutomation\Tests\Patterns\ScrollTests.cs" />
+    <Compile Include="UIAutomation\Tests\Patterns\SelectionItemTests.cs" />
+    <Compile Include="UIAutomation\Tests\Patterns\SelectionTests.cs" />
+    <Compile Include="UIAutomation\Tests\Patterns\TableItemTests.cs" />
+    <Compile Include="UIAutomation\Tests\Patterns\TableTests.cs" />
+    <Compile Include="UIAutomation\Tests\Patterns\TextTests.cs" />
+    <Compile Include="UIAutomation\Tests\Patterns\TextTestsHelper.cs" />
+    <Compile Include="UIAutomation\Tests\Patterns\ToggleTests.cs" />
+    <Compile Include="UIAutomation\Tests\Patterns\TransformsTests.cs" />
+    <Compile Include="UIAutomation\Tests\Patterns\ValueTests.cs" />
+    <Compile Include="UIAutomation\Tests\Patterns\WindowTests.cs" />
+    <Compile Include="UIAutomation\Tests\Scenarios\Menu.cs" />
+    <Compile Include="UIAutomation\Tests\Scenarios\Msaa.cs" />
+    <Compile Include="UIAutomation\Tests\Scenarios\Narrator.cs" />
+    <Compile Include="UIAutomation\Tests\Scenarios\ScreenReader.cs" />
+    <Compile Include="UIAutomation\Tests\Scenarios\Shell.cs" />
+    <Compile Include="UIAutomation\Tests\Scenarios\stress.cs" />
+    <Compile Include="UIAutomation\Tests\Scenarios\StressDriver.cs" />
+    <Compile Include="UIAutomation\Tests\Scenarios\Text.cs" />
+    <Compile Include="UIAutomation\Tests\Scenarios\TextPatternAvalon.cs" />
+    <Compile Include="UIAutomation\Tests\Scenarios\TopLevelEvents.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\UIAComWrapper\UIAComWrapper\CustomInterop.UIAutomationClient.il" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="uiaverify.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IQueryString\IQueryString.csproj">
+      <Project>{59A1D0ED-DA1A-4496-9FF5-2E2417E16AAC}</Project>
+      <Name>IQueryString</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UIAComWrapper\UIAComWrapper\UIAComWrapper.csproj">
+      <Project>{1DD63894-DBB9-40EF-BFF2-55624CB285AF}</Project>
+      <Name>UIAComWrapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\uialoggingxml\uialoggingxml.csproj">
+      <Project>{BA696918-C287-441E-B40A-8CEC5A7217F8}</Project>
+      <Name>uialoggingxml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\uialogging\uialogging.csproj">
+      <Project>{7F4B9045-8FEF-4875-8EA8-DD8091288E2B}</Project>
+      <Name>uialogging</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>"$(FrameworkDir)\$(FrameworkVersion)\ilasm" $(ProjectDir)\..\UIAComWrapper\UIAComWrapper\CustomInterop.UIAutomationClient.il /dll /output=$(TargetDir)\Interop.UIAutomationClient.dll</PreBuildEvent>
+  </PropertyGroup>
+</Project>

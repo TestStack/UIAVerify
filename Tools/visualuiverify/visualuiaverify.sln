@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "visualuiverify", "visualuiverify.csproj", "{136560B3-A744-4442-92FB-3556CA6098CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIATestLibrary", "..\..\UIATestLibrary\UIATestLibrary.csproj", "{C22A79FB-7154-49D0-9B37-3966DDB2FD9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uialogging", "..\..\..\uialogging\uialogging.csproj", "{96E31C9A-458D-4CA8-9FE5-F75E5EEA0AE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uialoggingxml", "..\..\..\uialoggingxml\uialoggingxml.csproj", "{2C78701C-528C-47F4-9661-0F8DE7B7C915}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{136560B3-A744-4442-92FB-3556CA6098CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{136560B3-A744-4442-92FB-3556CA6098CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{136560B3-A744-4442-92FB-3556CA6098CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{136560B3-A744-4442-92FB-3556CA6098CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C22A79FB-7154-49D0-9B37-3966DDB2FD9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C22A79FB-7154-49D0-9B37-3966DDB2FD9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C22A79FB-7154-49D0-9B37-3966DDB2FD9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C22A79FB-7154-49D0-9B37-3966DDB2FD9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96E31C9A-458D-4CA8-9FE5-F75E5EEA0AE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96E31C9A-458D-4CA8-9FE5-F75E5EEA0AE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96E31C9A-458D-4CA8-9FE5-F75E5EEA0AE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96E31C9A-458D-4CA8-9FE5-F75E5EEA0AE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2655E118-AF18-43EE-907B-C1B1AC834469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2655E118-AF18-43EE-907B-C1B1AC834469}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2655E118-AF18-43EE-907B-C1B1AC834469}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2655E118-AF18-43EE-907B-C1B1AC834469}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C78701C-528C-47F4-9661-0F8DE7B7C915}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C78701C-528C-47F4-9661-0F8DE7B7C915}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C78701C-528C-47F4-9661-0F8DE7B7C915}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C78701C-528C-47F4-9661-0F8DE7B7C915}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
