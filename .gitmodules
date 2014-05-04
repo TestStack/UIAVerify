@@ -1,0 +1,3 @@
+[submodule "UIAComWrapper"]
+	path = UIAComWrapper
+	url = git@github.com:ivan-danilov/UIAComWrapper.git
