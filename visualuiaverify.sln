@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "visualuiaverify", "Tools\visualuiverify\visualuiaverify.csproj", "{136560B3-A744-4442-92FB-3556CA6098CC}"
 	ProjectSection(ProjectDependencies) = postProject
 		{BA696918-C287-441E-B40A-8CEC5A7217F8} = {BA696918-C287-441E-B40A-8CEC5A7217F8}

@@ -1,5 +1,8 @@
-﻿<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{59A1D0ED-DA1A-4496-9FF5-2E2417E16AAC}</ProjectGuid>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
@@ -9,20 +12,12 @@
     <OutputType>library</OutputType>
     <AssemblyName>IQueryString</AssemblyName>
     <BaseAddress>4194304</BaseAddress>
-    <RootNamespace>
-    </RootNamespace>
     <Optimize>true</Optimize>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
     <DelaySign>false</DelaySign>
     <AssemblyOriginatorKeyFile>.\QueryString.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == '' ">
-    <Configuration>Release</Configuration>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Platform)' == '' ">
-    <Platform>AnyCPU</Platform>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPathBase>.\</OutputPathBase>
