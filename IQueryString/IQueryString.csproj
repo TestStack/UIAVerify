@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <UseVSHostingProcess>false</UseVSHostingProcess>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <OutputType>library</OutputType>
     <AssemblyName>IQueryString</AssemblyName>
     <BaseAddress>4194304</BaseAddress>
