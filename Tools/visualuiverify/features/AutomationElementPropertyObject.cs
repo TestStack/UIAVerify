@@ -1,10 +1,11 @@
-// (c) Copyright Microsoft Corporation.
+﻿// (c) Copyright Microsoft Corporation.
 // This source is subject to the Microsoft Permissive License.
 // See http://www.microsoft.com/opensource/licenses.mspx#Ms-PL.
 // All other rights reserved.
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Drawing = System.Drawing;
@@ -17,7 +18,7 @@ using System.Collections;
 
 namespace VisualUIAVerify.Features
 {
-    class AutomationElementPropertyObject
+    class AutomationElementPropertyObject : ICustomTypeDescriptor
     {
 
         const string constGeneralAccessibilityCategory = "General Accessibility";
@@ -25,6 +26,7 @@ namespace VisualUIAVerify.Features
         const string constIdentificationCategory = "Identification";
         const string constVisibilityCategory = "Visibility";
         const string constPatternsCategory = "Patterns";
+        const string constCustomPatternsCategory = "Сustom Patterns"; // small hack: first letter is cyrillic C to make this category appear last
         const string constInvokeMethod = "(invoke method)";
         const string constMessageCaption = "Message";
 
@@ -869,5 +871,123 @@ namespace VisualUIAVerify.Features
         }
 
         #endregion Args
+
+        #region ICustomTypeDescriptorImlementation
+
+        public AttributeCollection GetAttributes()
+        {
+            return TypeDescriptor.GetAttributes(this, true);
+        }
+
+        public string GetClassName()
+        {
+            return TypeDescriptor.GetClassName(this, true);
+        }
+
+        public string GetComponentName()
+        {
+            return TypeDescriptor.GetComponentName(this, true);
+        }
+
+        public TypeConverter GetConverter()
+        {
+            return TypeDescriptor.GetConverter(this, true);
+        }
+
+        public EventDescriptor GetDefaultEvent()
+        {
+            return TypeDescriptor.GetDefaultEvent(this, true);
+        }
+
+        public PropertyDescriptor GetDefaultProperty()
+        {
+            return TypeDescriptor.GetDefaultProperty(this, true);
+        }
+
+        public object GetEditor(Type editorBaseType)
+        {
+            return TypeDescriptor.GetEditor(this, editorBaseType, true);
+        }
+
+        public EventDescriptorCollection GetEvents()
+        {
+            return TypeDescriptor.GetEvents(this, true);
+        }
+
+        public EventDescriptorCollection GetEvents(Attribute[] attributes)
+        {
+            return TypeDescriptor.GetEvents(this, attributes, true);
+        }
+
+        public PropertyDescriptorCollection GetProperties()
+        {
+            return TypeDescriptor.GetProperties(this, true);
+        }
+
+        public PropertyDescriptorCollection GetProperties(Attribute[] attributes)
+        {
+            var props = TypeDescriptor.GetProperties(this, attributes, true);
+            var newProps = new PropertyDescriptorCollection(props.Cast<PropertyDescriptor>().ToArray());
+            newProps.Add(new CustomPatternPropertyDescriptor());
+            return newProps;
+        }
+
+        public object GetPropertyOwner(PropertyDescriptor pd)
+        {
+            return this;
+        }
+
+        private class CustomPatternPropertyDescriptor : PropertyDescriptor
+        {
+            public CustomPatternPropertyDescriptor() 
+                : base("My Custom Pattern", null)
+            {
+            }
+
+            public override AttributeCollection Attributes
+            {
+                get { return new AttributeCollection(new CategoryAttribute(constCustomPatternsCategory)); }
+            }
+
+            public override bool CanResetValue(object component)
+            {
+                return false;
+            }
+
+            public override object GetValue(object component)
+            {
+                return "some value";
+            }
+
+            public override void ResetValue(object component)
+            {
+            }
+
+            public override void SetValue(object component, object value)
+            {
+            }
+
+            public override bool ShouldSerializeValue(object component)
+            {
+                return false;
+            }
+
+            public override Type ComponentType
+            {
+                get { return typeof(AutomationElementPropertyObject); }
+            }
+
+            public override bool IsReadOnly
+            {
+                get { return true; }
+            }
+
+            public override Type PropertyType
+            {
+                get { return typeof(string); }
+            }
+        }
+
+        #endregion
     }
 }
