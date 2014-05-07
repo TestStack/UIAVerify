@@ -17,6 +17,7 @@ namespace VisualUIAVerify.Plugin
             Plugins = new List<IUiaVerifyPlugin>();
             CommonPatternDescriptors = new List<IUiaVerifyPatternDescriptor>();
             PatternDescriptorMap = new Dictionary<int, IUiaVerifyPatternDescriptor>();
+            RegisterPlugin(new InternalPlugin());
 
             var assemblyPath = Assembly.GetExecutingAssembly().Location;
             var assemblyDir = Path.GetDirectoryName(assemblyPath);
