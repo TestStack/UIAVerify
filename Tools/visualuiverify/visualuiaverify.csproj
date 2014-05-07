@@ -131,7 +131,7 @@
     <Compile Include="Features\FocusTracer.cs" />
     <Compile Include="Controls\TreeHelper.cs" />
     <Compile Include="Features\HoverMode.cs" />
-    <Compile Include="Plugin\IUiaVerifyCustomPatternDescriptor.cs" />
+    <Compile Include="Plugin\IUiaVerifyPatternDescriptor.cs" />
     <Compile Include="Plugin\IUiaVerifyPlugin.cs" />
     <Compile Include="Features\LiveTreeNode.cs" />
     <Compile Include="Features\AutomationTestsCollection.cs" />

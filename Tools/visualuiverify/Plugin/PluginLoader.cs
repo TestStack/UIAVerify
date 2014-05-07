@@ -9,14 +9,14 @@ namespace VisualUIAVerify.Plugin
     internal static class PluginLoader
     {
         internal static IList<IUiaVerifyPlugin> Plugins { get; private set; }
-        internal static IList<IUiaVerifyCustomPatternDescriptor> CommonPatternDescriptors { get; private set; }
-        internal static Dictionary<int, IUiaVerifyCustomPatternDescriptor> PatternDescriptorMap { get; private set; }
+        internal static IList<IUiaVerifyPatternDescriptor> CommonPatternDescriptors { get; private set; }
+        internal static Dictionary<int, IUiaVerifyPatternDescriptor> PatternDescriptorMap { get; private set; }
 
         internal static void Load()
         {
             Plugins = new List<IUiaVerifyPlugin>();
-            CommonPatternDescriptors = new List<IUiaVerifyCustomPatternDescriptor>();
-            PatternDescriptorMap = new Dictionary<int, IUiaVerifyCustomPatternDescriptor>();
+            CommonPatternDescriptors = new List<IUiaVerifyPatternDescriptor>();
+            PatternDescriptorMap = new Dictionary<int, IUiaVerifyPatternDescriptor>();
 
             var assemblyPath = Assembly.GetExecutingAssembly().Location;
             var assemblyDir = Path.GetDirectoryName(assemblyPath);
@@ -28,25 +28,30 @@ namespace VisualUIAVerify.Plugin
             foreach (var pluginPath in Directory.GetFiles(pluginsDir, "*.dll", SearchOption.TopDirectoryOnly))
             {
                 var a = Assembly.LoadFile(pluginPath);
-                var pluginTypes = a.GetTypes().Where(t => typeof(IUiaVerifyPlugin).IsAssignableFrom(t));
-                foreach (var pluginType in pluginTypes)
-                {
-                    var plugin = (IUiaVerifyPlugin)Activator.CreateInstance(pluginType);
-                    plugin.Initialize();
-                    Register(plugin);
-                    Plugins.Add(plugin);
-                }
+                LoadPluginsFromAssembly(a);
             }
         }
 
-        private static void Register(IUiaVerifyPlugin plugin)
+        private static void LoadPluginsFromAssembly(Assembly assembly)
         {
-            foreach (var patternDesc in plugin.CustomPatterns)
+            var pluginTypes = assembly.GetTypes().Where(t => typeof(IUiaVerifyPlugin).IsAssignableFrom(t));
+            foreach (var pluginType in pluginTypes)
+            {
+                var plugin = (IUiaVerifyPlugin)Activator.CreateInstance(pluginType);
+                RegisterPlugin(plugin);
+            }
+        }
+
+        private static void RegisterPlugin(IUiaVerifyPlugin plugin)
+        {
+            plugin.Initialize();
+            foreach (var patternDesc in plugin.PatternDescriptors)
             {
                 PatternDescriptorMap[patternDesc.Id] = patternDesc;
                 if (patternDesc.IsCommon)
                     CommonPatternDescriptors.Add(patternDesc);
             }
+            Plugins.Add(plugin);
         }
     }
 }

@@ -9,6 +9,6 @@ namespace VisualUIAVerify.Plugin
         /// </summary>
         void Initialize();
         
-        IEnumerable<IUiaVerifyCustomPatternDescriptor> CustomPatterns { get; }
+        IEnumerable<IUiaVerifyPatternDescriptor> PatternDescriptors { get; }
     }
 }

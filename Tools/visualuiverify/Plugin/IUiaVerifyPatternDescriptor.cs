@@ -1,6 +1,6 @@
 namespace VisualUIAVerify.Plugin
 {
-    public interface IUiaVerifyCustomPatternDescriptor
+    public interface IUiaVerifyPatternDescriptor
     {
         /// <summary>
         /// If true, pattern is shown always in general "Patterns" section on Property grid;

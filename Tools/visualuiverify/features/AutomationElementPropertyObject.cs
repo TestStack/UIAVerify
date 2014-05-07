@@ -104,7 +104,7 @@ namespace VisualUIAVerify.Features
                 else if (pattern is WindowPattern)
                     this._windowPatternPropertyObject = new WindowPatternPropertyObject((WindowPattern)pattern);
 
-                IUiaVerifyCustomPatternDescriptor patternDesc;
+                IUiaVerifyPatternDescriptor patternDesc;
                 if (PluginLoader.PatternDescriptorMap.TryGetValue(patternId.Id, out patternDesc))
                 {
                     object patternDescriptorObject;
