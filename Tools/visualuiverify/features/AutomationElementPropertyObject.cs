@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using VisualUIAVerify.Plugin;
 using Drawing = System.Drawing;
 using System.Drawing.Design;
 using System.Windows;
@@ -31,7 +32,9 @@ namespace VisualUIAVerify.Features
         const string constMessageCaption = "Message";
 
         public readonly AutomationElement AutomationElement;
-
+        private readonly Dictionary<string, object> _commonPatternDescriptorObjects;
+        private readonly Dictionary<string, object> _customPatternDescriptorObjects = new Dictionary<string, object>();
+            
         DockPatternPropertyObject _dockPatternPropertyObject;
         ExpandCollapsePatternPropertyObject _expandCollapsePatternPropertyObject;
         GridPatternPropertyObject _gridPatternPropertyObject;
@@ -56,6 +59,9 @@ namespace VisualUIAVerify.Features
         public AutomationElementPropertyObject(AutomationElement automationElement)
         {
             this.AutomationElement = automationElement;
+
+            // fill in the common patterns from plugins, so that they're present even if not implemented
+            _commonPatternDescriptorObjects = PluginLoader.CommonPatternDescriptors.ToDictionary(d => d.DisplayName, _ => (object)null);
 
             foreach (AutomationPattern patternId in automationElement.GetSupportedPatterns())
             {
@@ -97,6 +103,18 @@ namespace VisualUIAVerify.Features
                     this._valuePatternPropertyObject = new ValuePatternPropertyObject((ValuePattern)pattern);
                 else if (pattern is WindowPattern)
                     this._windowPatternPropertyObject = new WindowPatternPropertyObject((WindowPattern)pattern);
+
+                IUiaVerifyCustomPatternDescriptor patternDesc;
+                if (PluginLoader.PatternDescriptorMap.TryGetValue(patternId.Id, out patternDesc))
+                {
+                    object patternDescriptorObject;
+                    if (!patternDesc.TryGetPatternInstanceDescribingObject(pattern, out patternDescriptorObject)) 
+                        continue;
+                    var targetDict = patternDesc.IsCommon
+                                         ? _commonPatternDescriptorObjects
+                                         : _customPatternDescriptorObjects;
+                    targetDict[patternDesc.DisplayName] = patternDescriptorObject;
+                }
             }
         }
 
@@ -928,7 +946,18 @@ namespace VisualUIAVerify.Features
         {
             var props = TypeDescriptor.GetProperties(this, attributes, true);
             var newProps = new PropertyDescriptorCollection(props.Cast<PropertyDescriptor>().ToArray());
-            newProps.Add(new CustomPatternPropertyDescriptor());
+            foreach (var commonPair in _commonPatternDescriptorObjects)
+            {
+                var displayName = commonPair.Key;
+                var descriptorObject = commonPair.Value;
+                newProps.Add(new CustomPatternPropertyDescriptor(displayName, descriptorObject, common: true));
+            }
+            foreach (var customPair in _customPatternDescriptorObjects)
+            {
+                var displayName = customPair.Key;
+                var descriptorObject = customPair.Value;
+                newProps.Add(new CustomPatternPropertyDescriptor(displayName, descriptorObject, common: false));
+            }
             return newProps;
         }
 
@@ -939,14 +968,21 @@ namespace VisualUIAVerify.Features
 
         private class CustomPatternPropertyDescriptor : PropertyDescriptor
         {
-            public CustomPatternPropertyDescriptor() 
-                : base("My Custom Pattern", null)
+            private readonly object _value;
+            private readonly AttributeCollection _attributes;
+
+            public CustomPatternPropertyDescriptor(string displayName, object value, bool common) 
+                : base(displayName, null)
             {
+                var categoryAttr = new CategoryAttribute(common ? constPatternsCategory : constCustomPatternsCategory);
+                var typeConverterAttr = new TypeConverterAttribute(typeof(ExpandableObjectConverter));
+                _attributes = new AttributeCollection(categoryAttr, typeConverterAttr);
+                _value = value;
             }
 
             public override AttributeCollection Attributes
             {
-                get { return new AttributeCollection(new CategoryAttribute(constCustomPatternsCategory)); }
+                get { return _attributes; }
             }
 
             public override bool CanResetValue(object component)
@@ -956,7 +992,7 @@ namespace VisualUIAVerify.Features
 
             public override object GetValue(object component)
             {
-                return "some value";
+                return _value;
             }
 
             public override void ResetValue(object component)

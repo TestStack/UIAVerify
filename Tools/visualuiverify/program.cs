@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Windows.Automation;
 using System.Runtime.InteropServices;
+using VisualUIAVerify.Plugin;
 
 namespace VisualUIAVerify
 {
@@ -25,6 +26,7 @@ namespace VisualUIAVerify
             try
             {
                 System.Diagnostics.Debug.AutoFlush = true;
+                PluginLoader.Load();
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Forms.MainWindow(args));
