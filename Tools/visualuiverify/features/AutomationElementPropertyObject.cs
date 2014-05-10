@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using VisualUiaVerify.Integration;
 using VisualUIAVerify.Plugin;
 using Drawing = System.Drawing;
 using System.Drawing.Design;

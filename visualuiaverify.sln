@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIAComWrapper", "UIAComWrap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IQueryString", "IQueryString\IQueryString.csproj", "{59A1D0ED-DA1A-4496-9FF5-2E2417E16AAC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualUiaVerify.Integration", "VisualUiaVerify.Integration\VisualUiaVerify.Integration.csproj", "{F260B3A8-C011-4C12-9E40-475FF1087C6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{59A1D0ED-DA1A-4496-9FF5-2E2417E16AAC}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{59A1D0ED-DA1A-4496-9FF5-2E2417E16AAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59A1D0ED-DA1A-4496-9FF5-2E2417E16AAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F260B3A8-C011-4C12-9E40-475FF1087C6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F260B3A8-C011-4C12-9E40-475FF1087C6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F260B3A8-C011-4C12-9E40-475FF1087C6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F260B3A8-C011-4C12-9E40-475FF1087C6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

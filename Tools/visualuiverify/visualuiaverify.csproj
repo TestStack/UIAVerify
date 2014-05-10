@@ -133,8 +133,6 @@
     <Compile Include="Features\HoverMode.cs" />
     <Compile Include="Plugin\Builtin\InternalPlugin.cs" />
     <Compile Include="Plugin\Builtin\ItemContainerPatternDescriptorObj.cs" />
-    <Compile Include="Plugin\IUiaVerifyPatternDescriptor.cs" />
-    <Compile Include="Plugin\IUiaVerifyPlugin.cs" />
     <Compile Include="Features\LiveTreeNode.cs" />
     <Compile Include="Features\AutomationTestsCollection.cs" />
     <Compile Include="Features\AutomationTestManager.cs" />
@@ -162,7 +160,6 @@
     <Compile Include="Misc\HotKey.cs" />
     <Compile Include="Misc\WaitCursor.cs" />
     <Compile Include="Plugin\PluginLoader.cs" />
-    <Compile Include="Plugin\RelayPatternDescriptor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -272,6 +269,10 @@
     <ProjectReference Include="..\..\UIATestLibrary\UIATestLibrary.csproj">
       <Project>{EF563732-17B0-4B32-B14C-903A65862DF6}</Project>
       <Name>UIATestLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\VisualUiaVerify.Integration\VisualUiaVerify.Integration.csproj">
+      <Project>{F260B3A8-C011-4C12-9E40-475FF1087C6F}</Project>
+      <Name>VisualUiaVerify.Integration</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

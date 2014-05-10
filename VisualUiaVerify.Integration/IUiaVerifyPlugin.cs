@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace VisualUIAVerify.Plugin
+namespace VisualUiaVerify.Integration
 {
     public interface IUiaVerifyPlugin
     {

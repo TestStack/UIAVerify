@@ -1,4 +1,4 @@
-namespace VisualUIAVerify.Plugin
+namespace VisualUiaVerify.Integration
 {
     public interface IUiaVerifyPatternDescriptor
     {

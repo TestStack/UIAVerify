@@ -1,9 +1,9 @@
 using System;
 using System.Windows.Automation;
 
-namespace VisualUIAVerify.Plugin
+namespace VisualUiaVerify.Integration
 {
-    internal class RelayPatternDescriptor : IUiaVerifyPatternDescriptor
+    public class RelayPatternDescriptor : IUiaVerifyPatternDescriptor
     {
         private readonly Func<object, object> _descObjFactory;
 

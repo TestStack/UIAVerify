@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Automation;
+using VisualUiaVerify.Integration;
 
 namespace VisualUIAVerify.Plugin
 {
