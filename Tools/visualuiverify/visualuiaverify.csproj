@@ -79,6 +79,7 @@
     <Reference Include="System">
       <HintPath>..\..\..\Windows\Microsoft.NET\Framework\v2.0.50727\System.dll</HintPath>
     </Reference>
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -94,6 +95,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\UiaVerifyConfiguration.cs" />
+    <Compile Include="Configuration\PluginConfigurationElement.cs" />
+    <Compile Include="Configuration\PluginsConfigurationElementCollection.cs" />
+    <Compile Include="Configuration\UiaVerifyConfigurationSection.cs" />
     <Compile Include="Controls\AutomationElementPropertyGrid.cs">
       <SubType>UserControl</SubType>
     </Compile>

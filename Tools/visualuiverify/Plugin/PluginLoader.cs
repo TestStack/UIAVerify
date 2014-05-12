@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using VisualUIAVerify.Configuration;
 using VisualUiaVerify.Integration;
 
 namespace VisualUIAVerify.Plugin
@@ -20,18 +22,33 @@ namespace VisualUIAVerify.Plugin
             PatternDescriptorMap = new Dictionary<int, IUiaVerifyPatternDescriptor>();
             RegisterPlugin(new InternalPlugin());
 
+            LoadPluginsFromSubdirectory();
+            LoadPluginsFromConfiguration();
+        }
+
+        private static void LoadPluginsFromSubdirectory()
+        {
             var assemblyPath = Assembly.GetExecutingAssembly().Location;
             var assemblyDir = Path.GetDirectoryName(assemblyPath);
             if (assemblyDir == null) return;
-            
+
             var pluginsDir = Path.Combine(assemblyDir, "Plugins");
             if (!Directory.Exists(pluginsDir)) return;
 
             foreach (var pluginPath in Directory.GetFiles(pluginsDir, "*.dll", SearchOption.TopDirectoryOnly))
-            {
-                var a = Assembly.LoadFile(pluginPath);
-                LoadPluginsFromAssembly(a);
-            }
+                LoadPluginsFromAssembly(pluginPath);
+        }
+
+        private static void LoadPluginsFromConfiguration()
+        {
+            foreach (var pluginAssemblyFilename in UiaVerifyConfiguration.Instance.Plugins)
+                LoadPluginsFromAssembly(pluginAssemblyFilename);
+        }
+
+        private static void LoadPluginsFromAssembly(string assemblyFilename)
+        {
+            var a = Assembly.LoadFrom(assemblyFilename);
+            LoadPluginsFromAssembly(a);
         }
 
         private static void LoadPluginsFromAssembly(Assembly assembly)
