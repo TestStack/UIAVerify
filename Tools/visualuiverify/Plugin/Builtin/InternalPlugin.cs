@@ -9,8 +9,6 @@ namespace VisualUIAVerify.Plugin
     /// </summary>
     internal class InternalPlugin : IUiaVerifyPlugin
     {
-        private IUiaVerifyPatternDescriptor _itemContainerPatternDescriptor;
-
         private IUiaVerifyPatternDescriptor[] _patternDescriptors;
 
         public void Initialize()
