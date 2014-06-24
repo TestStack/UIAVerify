@@ -7,7 +7,7 @@ using System;
 using System.ComponentModel;
 using System.Drawing.Design;
 
-namespace VisualUIAVerify.Features
+namespace VisualUiaVerify.Integration
 {
     public class InvokeMethodButtonEditor : UITypeEditor
     {

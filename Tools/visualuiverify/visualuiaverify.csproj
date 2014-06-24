@@ -130,7 +130,6 @@
       <DependentUpon>TestResultsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\TestResultsControlEvents.cs" />
-    <Compile Include="Features\AutomationElementPatternsPropertyObject.cs" />
     <Compile Include="Features\AutomationElementPropertyObject.cs">
     </Compile>
     <Compile Include="Features\AutomationTest.cs" />

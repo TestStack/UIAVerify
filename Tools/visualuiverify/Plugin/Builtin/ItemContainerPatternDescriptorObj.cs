@@ -2,6 +2,7 @@ using System.ComponentModel;
 using System.Drawing.Design;
 using System.Windows.Automation;
 using VisualUIAVerify.Features;
+using VisualUiaVerify.Integration;
 
 namespace VisualUIAVerify.Plugin
 {
