@@ -33,10 +33,9 @@
     <Reference Include="Accessibility">
       <HintPath>..\..\Windows\Microsoft.NET\Framework\v2.0.50727\Accessibility.dll</HintPath>
     </Reference>
-    <Reference Include="Interop.UIAutomationClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Interop.UIAutomationClient, Version=12.0.20617.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\UIAComWrapper.1.1.0.14\lib\net40\Interop.UIAutomationClient.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
-      <HintPath>..\UIAComWrapper\Libs\Interop.UIAutomationClient.dll</HintPath>
     </Reference>
     <Reference Include="System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -48,6 +47,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAComWrapper, Version=1.1.0.14, Culture=neutral, PublicKeyToken=78cbcf77433a85e5, processorArchitecture=MSIL">
+      <HintPath>..\packages\UIAComWrapper.1.1.0.14\lib\net40\UIAComWrapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WindowsBase, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Program Files\Reference Assemblies\Microsoft\Framework\v3.0\WindowsBase.dll</HintPath>
@@ -165,10 +168,6 @@
       <Project>{59A1D0ED-DA1A-4496-9FF5-2E2417E16AAC}</Project>
       <Name>IQueryString</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UIAComWrapper\UIAComWrapper\UIAComWrapper.csproj">
-      <Project>{1DD63894-DBB9-40EF-BFF2-55624CB285AF}</Project>
-      <Name>UIAComWrapper</Name>
-    </ProjectReference>
     <ProjectReference Include="..\uialoggingxml\uialoggingxml.csproj">
       <Project>{BA696918-C287-441E-B40A-8CEC5A7217F8}</Project>
       <Name>uialoggingxml</Name>
@@ -177,6 +176,9 @@
       <Project>{7F4B9045-8FEF-4875-8EA8-DD8091288E2B}</Project>
       <Name>uialogging</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

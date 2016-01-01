@@ -3,3 +3,4 @@ Backup/
 bin/
 obj/
 *.suo
+packages/
