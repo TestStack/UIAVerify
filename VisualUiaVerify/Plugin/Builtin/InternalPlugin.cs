@@ -18,6 +18,9 @@ namespace VisualUIAVerify.Plugin
                                       new RelayPatternDescriptor(ItemContainerPattern.Pattern,
                                                                  true,
                                                                  pi => new ItemContainerPatternDescriptorObj((ItemContainerPattern)pi)),
+                                      new RelayPatternDescriptor(LegacyIAccessiblePattern.Pattern,
+                                                                 true,
+                                                                 pi => new LegacyIAccessiblePatternDescriptorObj((LegacyIAccessiblePattern)pi)),
                                   };
         }
 

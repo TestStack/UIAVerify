@@ -167,6 +167,7 @@
     <Compile Include="Misc\Enumerations.cs" />
     <Compile Include="Misc\HotKey.cs" />
     <Compile Include="Misc\WaitCursor.cs" />
+    <Compile Include="Plugin\Builtin\LegacyIAccessiblePatternDescriptorObj.cs" />
     <Compile Include="Plugin\PluginLoader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
