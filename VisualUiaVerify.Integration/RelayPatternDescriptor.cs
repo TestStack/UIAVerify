@@ -14,8 +14,16 @@ namespace VisualUiaVerify.Integration
         public string DisplayName { get; private set; }
 
         public RelayPatternDescriptor(AutomationPattern pattern, bool isCommon, Func<object, object> descObjFactory)
-            :this(pattern.ProgrammaticName, pattern.Id, isCommon, descObjFactory)
+            : this(CleanName(pattern.ProgrammaticName), pattern.Id, isCommon, descObjFactory)
         {
+        }
+
+        private static string CleanName(string programmaticName)
+        {
+            const string ending = "PatternIdentifiers.Pattern";
+            if (programmaticName.EndsWith(ending))
+                return programmaticName.Remove(programmaticName.Length - ending.Length);
+            return programmaticName;
         }
 
         public RelayPatternDescriptor(string displayName, int id, bool isCommon, Func<object, object> descObjFactory)
