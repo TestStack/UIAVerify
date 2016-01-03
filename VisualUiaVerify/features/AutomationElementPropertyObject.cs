@@ -74,6 +74,8 @@ namespace VisualUIAVerify.Features
                     this._dockPatternPropertyObject = new DockPatternPropertyObject((DockPattern)pattern);
                 else if (pattern is ExpandCollapsePattern)
                     this._expandCollapsePatternPropertyObject = new ExpandCollapsePatternPropertyObject((ExpandCollapsePattern)pattern);
+                else if (pattern is TablePattern)
+                    this._tablePatternPropertyObject = new TablePatternPropertyObject((TablePattern)pattern);
                 else if (pattern is GridPattern)
                     this._gridPatternPropertyObject = new GridPatternPropertyObject((GridPattern)pattern);
                 else if (pattern is InvokePattern)
@@ -92,8 +94,6 @@ namespace VisualUIAVerify.Features
                     this._selectionPatternPropertyObject = new SelectionPatternPropertyObject((SelectionPattern)pattern);
                 else if (pattern is TableItemPattern)
                     this._tableItemPatternPropertyObject = new TableItemPatternPropertyObject((TableItemPattern)pattern);
-                else if (pattern is TablePattern)
-                    this._tablePatternPropertyObject = new TablePatternPropertyObject((TablePattern)pattern);
                 else if (pattern is TextPattern)
                     this._textPatternPropertyObject = new TextPatternPropertyObject((TextPattern)pattern);
                 else if (pattern is TogglePattern)
