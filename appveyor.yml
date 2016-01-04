@@ -1,0 +1,25 @@
+install:
+  - choco install gitversion.portable -pre -y
+  - choco install gitlink -y
+  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-desktop.ps1'))
+
+assembly_info:
+  patch: false
+
+configuration:
+  - Release
+
+platform:
+  - Any CPU
+
+before_build:
+  - nuget restore
+  - ps: gitversion /l console /output buildserver /updateAssemblyInfo
+
+build_script:
+  - cmd: msbuild visualuiaverify.sln "/p:Configuration=%CONFIGURATION%;Platform=%PLATFORM%"
+
+  - cmd: GitLink . -u https://github.com/TestStack/UIAVerify -c %CONFIGURATION%
+
+cache:
+  - packages -> **\packages.config
